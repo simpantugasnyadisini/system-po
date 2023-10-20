@@ -123,7 +123,7 @@ if (isset($_POST['simpan'])) { //untuk create data po
             <br>
             <p class="card-text fw-bold border-bottom">Menu</p>
             <p class="card-text"><a href="http://localhost/php-mysqli/index.php" style="text-decoration: none; color: #000;">Dashboard</a></p>
-            <p class="card-text"><a href="http://localhost/php-mysqli/list-purchase-order.php" style="text-decoration: none; color: #000;">Purchase Order</a></p>
+            <p class="card-text"><a href="http://localhost/php-mysqli/list-purchase-order.php" style="text-decoration: none; color: #000;">Purchase Orders</a></p>
             <p class="card-text">Supplier List</p>
             <p class="card-text">Item List</p>
             <br>
@@ -134,116 +134,128 @@ if (isset($_POST['simpan'])) { //untuk create data po
         </div>
       </aside>
       <main>
-        <header class="bg-success border shadow p-1" style="width: 66rem; height: 10vh;">
+        <header class="bg-success border shadow p-1" style="width: 100%; height: 10vh;">
           <div class="d-flex justify-content-between p-2">
             <p class="p-2">Purchase Order Management System CV. Subur Jaya</p>
             <p class="fw-bold"><img src="./images/user.svg" class="img-fluid rounded-start p-1" alt="user-jpg" style="height: 40px; width:auto">Akun Administrator</p>
           </div>
         </header>
-        <div>
-        <div class="card ">
-      <div class="card-header bg-success text-white">
-        <div class="d-flex justify-content-between">
-          <h4>Buat Data PO</h4>
-          <a href="http://localhost/php-mysqli/list-purchase-order.php"><button type="button" class="btn btn-block btn-primary m-1">Lihat Data PO</button></a>
-        </div>
-      </div>
-      <div class="card-body">
-        <?php
-        if ($error) {
-        ?>
-          <div class="alert alert-danger" role="alert">
-            <?php echo $error ?>
-          </div>
-        <?php
-          header("refresh:10;url=new-purchase-order.php"); //10 : detik
-        }
-        ?>
-        <?php
-        if ($sukses) {
-        ?>
-          <div class="alert alert-success" role="alert">
-            <?php echo $sukses ?>
-          </div>
-        <?php
-          header("refresh:5;url=new-purchase-order.php");
-        }
-        ?>
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <?php
+              if ($error) {
+              ?>
+                <div class="alert alert-danger" role="alert">
+                  <?php echo $error ?>
+                </div>
+              <?php
+                header("refresh:10;url=new-purchase-order.php"); //10 : detik
+              }
+              ?>
+              <?php
+              if ($sukses) {
+              ?>
+                <div class="alert alert-success" role="alert">
+                  <?php echo $sukses ?>
+                </div>
+              <?php
+                header("refresh:10;url=new-purchase-order.php");
+              }
+              ?>
 
-        <form action="" method="POST">
+              <form action="" method="POST">
+              <div class="d-flex justify-content-between">
+                <h4>Buat Data PO</h4>
+                <a href="http://localhost/php-mysqli/list-purchase-order.php"><button type="button" class="btn btn-block btn-primary">Lihat Data PO</button></a>
+              </div>
 
-          <div class="mb-3 row">
-            <label for="tanggalmasuk" class="col-sm-2 col-form-label">Tanggal Masuk</label>
-            <div class="col-sm-10">
-              <input type="date" class="form-control" id="tanggalmasuk" name="tanggalmasuk" value="<?php echo $tanggalmasuk ?>">
+                <div class="">
+                  <div class="row g-2">
+                    <div class="col-4">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <label for="tanggalmasuk" class="col-sm-12 col-form-label">Tanggal Masuk</label>
+                          <input type="date" class="form-control" id="tanggalmasuk" name="tanggalmasuk" value="<?php echo $tanggalmasuk ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <label for="idorderanmasuk" class="col-sm-12 col-form-label">ID Order</label>
+                          <input type="text" class="form-control" id="idorderanmasuk" name="idorderanmasuk" placeholder="e.g. 01-234-AB" value="<?php echo $idorderanmasuk ?>">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-4">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <label for="customer" class="col-sm-12 col-form-label">Customer</label>
+                          <select class="form-control" name="customer" id="customer">
+                            <option value="">- Pilih Konsumen -</option>
+                            <option value="coopdesign" <?php if ($customer == "coopdesign") echo "selected" ?>>Coop Design</option>
+                            <option value="littlecoop" <?php if ($customer == "littlecoop") echo "selected" ?>>Little Coop</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-6">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <label for="kuantitas" class="col-sm-12 col-form-label">Kuantitas</label>
+                          <input type="number" class="form-control" id="kuantitas" name="kuantitas" placeholder="e.g. 100" value="<?php echo $kuantitas ?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <label for="harga" class="col-sm-12 col-form-label">Harga (Rp)</label>
+                          <input type="number" class="form-control" id="harga" name="harga" placeholder="e.g. 100.000" value="<?php echo $harga ?>">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-6">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <label for="po" class="col-sm-2 col-form-label">PO</label>
+                          <select class="form-control" name="po" id="po">
+                            <option value="">- Pilih PO atau Tidak -</option>
+                            <option value="Tidak" <?php if ($po == "Tidak") echo "selected" ?>>Tidak</option>
+                            <option value="Ya" <?php if ($po == "Ya") echo "selected" ?>>Ya</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="row">
+                        <div class="col-sm-12">
+                        <label for="poexpired" class="col-sm-2 col-form-label">PO Expired</label>
+                        <input type="date" class="form-control" id="poexpired" name="poexpired" value="<?php echo $poexpired ?>">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mb-2 row">
+                    <div class="col-sm-12">
+                      <label for="keterangan" class="col-sm-2 col-form-label">Keterangan</label>
+                      <textarea class="form-control" id="keterangan" name="keterangan" placeholder="Tambah Keterangan" rows="5" cols="200"><?php echo $keterangan ?></textarea>
+                    </div>
+                  </div>
+
+                  <div class="d-grid">
+                    <input type="submit" name="simpan" value="Simpan Data" class="btn btn-primary mt-3" />
+                  </div>
+
+                </div>
+              </form>
             </div>
           </div>
-
-          <div class="mb-3 row">
-            <label for="idorderanmasuk" class="col-sm-2 col-form-label">ID Order</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="idorderanmasuk" name="idorderanmasuk" placeholder="e.g. 01-234-AB" value="<?php echo $idorderanmasuk ?>">
-            </div>
-          </div>
-
-          <div class="mb-3 row">
-            <label for="kuantitas" class="col-sm-2 col-form-label">Kuantitas</label>
-            <div class="col-sm-10">
-              <input type="number" class="form-control" id="kuantitas" name="kuantitas" placeholder="e.g. 100" value="<?php echo $kuantitas ?>">
-            </div>
-          </div>
-
-          <div class="mb-3 row">
-            <label for="harga" class="col-sm-2 col-form-label">Harga (Rp)</label>
-            <div class="col-sm-10">
-              <input type="number" class="form-control" id="harga" name="harga" placeholder="e.g. 100.000" value="<?php echo $harga ?>">
-            </div>
-          </div>
-
-          <div class="mb-3 row">
-            <label for="customer" class="col-sm-2 col-form-label">Customer</label>
-            <div class="col-sm-10">
-              <select class="form-control" name="customer" id="customer">
-                <option value="">- Pilih Konsumen -</option>
-                <option value="coopdesign" <?php if ($customer == "coopdesign") echo "selected" ?>>Coop Design</option>
-                <option value="littlecoop" <?php if ($customer == "littlecoop") echo "selected" ?>>Little Coop</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="mb-3 row">
-            <label for="po" class="col-sm-2 col-form-label">PO</label>
-            <div class="col-sm-10">
-              <select class="form-control" name="po" id="po">
-                <option value="">- Pilih PO atau Tidak -</option>
-                <option value="Tidak" <?php if ($po == "Tidak") echo "selected" ?>>Tidak</option>
-                <option value="Ya" <?php if ($po == "Ya") echo "selected" ?>>Ya</option>
-              </select>
-            </div>
-          </div>
-
-
-          <div class="mb-3 row">
-            <label for="poexpired" class="col-sm-2 col-form-label">PO Expired</label>
-            <div class="col-sm-10">
-              <input type="date" class="form-control" id="poexpired" name="poexpired" value="<?php echo $poexpired ?>">
-            </div>
-          </div>
-
-          <div class="mb-3 row">
-            <label for="keterangan" class="col-sm-2 col-form-label">Keterangan</label>
-            <div class="col-sm-10">
-              <textarea class="form-control" id="keterangan" name="keterangan" placeholder="Tambah Keterangan" rows="5" cols="1000"><?php echo $keterangan ?></textarea>
-            </div>
-          </div>
-
-          <div class="d-grid gap-2">
-            <input type="submit" name="simpan" value="Simpan Data" class="btn btn-primary" />
-          </div>
-
-        </form>
-      </div>
-    </div>
 
 
         </div>

@@ -21,7 +21,7 @@
             <br>
             <p class="card-text fw-bold border-bottom">Menu</p>
             <p class="card-text"><a href="http://localhost/php-mysqli/index.php" style="text-decoration: none; color: #000;">Dashboard</a></p>
-            <p class="card-text"><a href="http://localhost/php-mysqli/list-purchase-order.php" style="text-decoration: none; color: #000;">Purchase Order</a></p>
+            <p class="card-text"><a href="http://localhost/php-mysqli/list-purchase-order.php" style="text-decoration: none; color: #000;">Purchase Orders</a></p>
             <p class="card-text">Supplier List</p>
             <p class="card-text">Item List</p>
             <br>
