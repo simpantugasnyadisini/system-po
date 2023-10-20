@@ -12,8 +12,8 @@
 </head>
 
 <body>
-  <div class="container bg-primary-subtle">
-    <div class="d-flex align-items-start">
+  <div class="container-fluid bg-primary-subtle">
+    <div class="d-flex align-items-start mt-(-1)">
       <aside>
         <div class="card" style="width: 18rem; height: 100vh;">
           <div class="card-body bg-success text-white">
@@ -21,9 +21,9 @@
             <br>
             <p class="card-text fw-bold border-bottom">Menu</p>
             <p class="card-text"><a href="http://localhost/php-mysqli/index.php" style="text-decoration: none; color: #000;">Dashboard</a></p>
+            <p class="card-text"><a href="http://localhost/php-mysqli/list-purchase-order.php" style="text-decoration: none; color: #000;">Purchase Order</a></p>
             <p class="card-text">Supplier List</p>
             <p class="card-text">Item List</p>
-            <p class="card-text"><a href="http://localhost/php-mysqli/purchase-order.php" style="text-decoration: none; color: #000;">Purchase Order</a></p>
             <br>
             <p class="card-text fw-bold border-bottom">Maintenance</p>
             <p class="card-text">User List</p>
@@ -32,7 +32,7 @@
         </div>
       </aside>
       <main>
-        <header class="bg-success border shadow p-1" style="width: 52rem; height: 10vh;">
+        <header class="bg-success border shadow p-1" style="width: 66rem; height: 10vh;">
           <div class="d-flex justify-content-between p-2">
             <p class="p-2">Purchase Order Management System CV. Subur Jaya</p>
             <p class="fw-bold"><img src="./images/user.svg" class="img-fluid rounded-start p-1" alt="user-jpg" style="height: 40px; width:auto">Akun Administrator</p>
@@ -50,7 +50,7 @@
                 <div class="col-md-8">
                   <div class="">
                     <p class="card-title text-center ">Total Buyer</p>
-                    <P class="card-text text-center fw-bold">100</P>
+                    <P class="card-text text-center fw-bold">0</P>
                   </div>
                 </div>
               </div>
@@ -66,7 +66,7 @@
                 <div class="col-md-8">
                   <div class="">
                     <p class="card-title text-center ">Total Item</p>
-                    <P class="card-text text-center fw-bold">200</P>
+                    <P class="card-text text-center fw-bold">0</P>
                   </div>
                 </div>
               </div>
@@ -82,7 +82,7 @@
                 <div class="col-md-8">
                   <div class="">
                     <p class="card-title text-center ">PO Diterima</p>
-                    <P class="card-text text-center fw-bold">10</P>
+                    <P class="card-text text-center fw-bold">0</P>
                   </div>
                 </div>
               </div>
